@@ -1,6 +1,6 @@
 import './slider';
-import modals from './modules/modal';
+import modal from './modules/modal';
 
 window.addEventListener('DOMContentLoaded', () => {
-    modals();
+    modal();
 });

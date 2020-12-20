@@ -14020,7 +14020,16 @@ window.addEventListener('DOMContentLoaded', function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var modal = function modal() {
-  console.log(1);
+  function openModal(selectorBtn, selectorPopup, selectorClose) {
+    var button = document.querySelector(selectorBtn),
+        popup = document.querySelector(selectorPopup),
+        close = document.querySelector(selectorClose);
+    button.addEventListener('click', function () {
+      popup.style.display = 'block';
+    });
+  }
+
+  console.log(3);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modal);
