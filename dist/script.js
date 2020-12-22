@@ -14837,6 +14837,8 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ "./src/js/modules/modal.js");
+/* harmony import */ var _modules_tab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/tab */ "./src/js/modules/tab.js");
+
 
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -14860,10 +14862,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var modal = function modal() {
   function openModal(selectorBtn, selectorPopup, selectorClose) {
-    var button = document.querySelectorAll(selectorBtn),
+    var buttons = document.querySelectorAll(selectorBtn),
         popup = document.querySelector(selectorPopup),
         close = document.querySelector(selectorClose);
-    button.forEach(function (button) {
+    buttons.forEach(function (button) {
       return button.addEventListener('click', function (e) {
         if (e.target) {
           e.preventDefault();
@@ -14899,6 +14901,29 @@ var modal = function modal() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modal);
+
+/***/ }),
+
+/***/ "./src/js/modules/tab.js":
+/*!*******************************!*\
+  !*** ./src/js/modules/tab.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var tab = function tab(tabSelector, contentSelector, headerSelector, activeClass) {
+  var header = document.querySelector(headerSelector),
+      contents = document.querySelectorAll(contentSelector),
+      tabs = document.querySelectorAll(tabSelector);
+
+  function showContent() {}
+
+  function hideContent() {}
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (tab);
 
 /***/ }),
 

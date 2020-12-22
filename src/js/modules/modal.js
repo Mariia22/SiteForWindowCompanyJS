@@ -1,11 +1,11 @@
 const modal = () => {
     function openModal(selectorBtn, selectorPopup, selectorClose) {
 
-        const button = document.querySelectorAll(selectorBtn),
+        const buttons = document.querySelectorAll(selectorBtn),
             popup = document.querySelector(selectorPopup),
             close = document.querySelector(selectorClose);
 
-        button.forEach(button => button.addEventListener('click', (e) => {
+        buttons.forEach(button => button.addEventListener('click', (e) => {
             if (e.target) {
                 e.preventDefault();
             }

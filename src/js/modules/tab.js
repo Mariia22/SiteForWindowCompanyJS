@@ -1,10 +1,10 @@
-const tabs = () => {
-    function toggletabs(tabSelector, contentSelector, headerSelector) {
-        const header = document.querySelector(headerSelector),
-            contents = document.querySelectorAll(contentSelector),
-            tabs = document.querySelectorAll(tabSelector);
-
+const tab = (tabSelector, contentSelector, headerSelector, activeClass) => {
+    const header = document.querySelector(headerSelector),
+        contents = document.querySelectorAll(contentSelector),
+        tabs = document.querySelectorAll(tabSelector);
+    function showContent() {
     }
+    function hideContent() { }
 }
 
-export default tabs;
+export default tab;
