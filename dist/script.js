@@ -15463,6 +15463,7 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(_modules_tab__WEBPACK_IMPORTED_MODULE_2__["default"])('.glazing_block', '.glazing_content', '.glazing_slider', 'active');
+  Object(_modules_tab__WEBPACK_IMPORTED_MODULE_2__["default"])('.no_click', '.decoration_content > div>div', '.decoration_slider', 'after_click');
 });
 
 /***/ }),
@@ -15535,6 +15536,9 @@ var modal = function modal() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.string.replace */ "./node_modules/core-js/modules/es.string.replace.js");
 /* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 var tab = function tab(tabSelector, contentSelector, headerSelector, activeClass) {
@@ -15542,29 +15546,38 @@ var tab = function tab(tabSelector, contentSelector, headerSelector, activeClass
       contents = document.querySelectorAll(contentSelector),
       tabs = document.querySelectorAll(tabSelector);
 
-  function showContent(i) {
-    content[i].style.display = 'none';
-    tab[i].class.add(activeClass);
+  function showContent() {
+    var i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    contents[i].style.display = 'block';
+    tabs[i].classList.add(activeClass);
   }
 
   function hideContent() {
-    var i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    content[i].style.display = 'block';
-    tab[i].class.remove(activeClass);
+    contents.forEach(function (content) {
+      return content.style.display = 'none';
+    });
+    tabs.forEach(function (tab) {
+      return tab.classList.remove(activeClass);
+    });
   }
 
   header.addEventListener('click', function (e) {
     var target = e.target;
     var selector = tabSelector.replace(/\./, '');
 
-    if (target.contains(selector) || target.parentNode.contains(selector)) {
-      console.log('Pfikb');
-
-      for (var i = 0; i < tabs.length; i++) {
-        if (tabs[i] = target) {
+    if (target.classList.contains(selector) || target.parentNode.classList.contains(selector)) {
+      /*for (let i = 0; i < tabs.length; i++) {
+          if (tabs[i] == target || tabs[i] == target.parentNode) {
+              hideContent();
+              showContent(i);
+          }
+      }*/
+      tabs.forEach(function (item, i) {
+        if (item == target || item == target.parentNode) {
+          hideContent();
           showContent(i);
         }
-      }
+      });
     }
   });
 };

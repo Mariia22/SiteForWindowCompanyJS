@@ -3,24 +3,30 @@ const tab = (tabSelector, contentSelector, headerSelector, activeClass) => {
         contents = document.querySelectorAll(contentSelector),
         tabs = document.querySelectorAll(tabSelector);
 
-    function showContent(i) {
-        content[i].style.display = 'none';
-        tab[i].class.add(activeClass);
+    function showContent(i = 0) {
+        contents[i].style.display = 'block';
+        tabs[i].classList.add(activeClass);
     }
-    function hideContent(i = 0) {
-        content[i].style.display = 'block';
-        tab[i].class.remove(activeClass);
+    function hideContent() {
+        contents.forEach(content => content.style.display = 'none');
+        tabs.forEach(tab => tab.classList.remove(activeClass));
     }
     header.addEventListener('click', (e) => {
         const target = e.target;
         const selector = tabSelector.replace(/\./, '');
-        if (target.contains(selector) || target.parentNode.contains(selector)) {
-            console.log('Pfikb');
-            for (let i = 0; i < tabs.length; i++) {
-                if (tabs[i] = target) {
+        if (target.classList.contains(selector) || target.parentNode.classList.contains(selector)) {
+            /*for (let i = 0; i < tabs.length; i++) {
+                if (tabs[i] == target || tabs[i] == target.parentNode) {
+                    hideContent();
                     showContent(i);
                 }
-            }
+            }*/
+            tabs.forEach((item, i) => {
+                if (item == target || item == target.parentNode) {
+                    hideContent();
+                    showContent(i);
+                }
+            });
         }
     })
 }
