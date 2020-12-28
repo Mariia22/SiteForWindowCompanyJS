@@ -34,7 +34,7 @@ const modal = () => {
     }
     openModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
     openModal('.phone_link', '.popup', '.popup .popup_close');
-    openModalTimer('.popup', 3000);
+    openModalTimer('.popup', 300000);
 };
 
 export default modal;

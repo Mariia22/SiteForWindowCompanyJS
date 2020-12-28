@@ -15521,7 +15521,7 @@ var modal = function modal() {
 
   openModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
   openModal('.phone_link', '.popup', '.popup .popup_close');
-  openModalTimer('.popup', 3000);
+  openModalTimer('.popup', 300000);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modal);
