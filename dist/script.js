@@ -15457,6 +15457,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ "./src/js/modules/modal.js");
 /* harmony import */ var _modules_tab__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/tab */ "./src/js/modules/tab.js");
+/* harmony import */ var _modules_sendForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/sendForm */ "./src/js/modules/sendForm.js");
+
 
 
 
@@ -15464,6 +15466,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(_modules_tab__WEBPACK_IMPORTED_MODULE_2__["default"])('.glazing_block', '.glazing_content', '.glazing_slider', 'active');
   Object(_modules_tab__WEBPACK_IMPORTED_MODULE_2__["default"])('.no_click', '.decoration_content > div>div', '.decoration_slider', 'after_click');
+  Object(_modules_sendForm__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
 
 /***/ }),
@@ -15522,6 +15525,30 @@ var modal = function modal() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modal);
+
+/***/ }),
+
+/***/ "./src/js/modules/sendForm.js":
+/*!************************************!*\
+  !*** ./src/js/modules/sendForm.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var sendForm = function sendForm() {
+  var form = document.querySelectorAll('form'),
+      input = document.querySelectorAll('input'),
+      phoneInput = document.querySelectorAll('input[name = "user-phone"]');
+  var messages = {
+    loading: 'Идет загрузка',
+    success: 'Данные успешно отправлены',
+    failure: 'Что-то пошло не так'
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (sendForm);
 
 /***/ }),
 
