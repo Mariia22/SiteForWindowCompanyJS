@@ -39,7 +39,10 @@ const sendForm = () => {
 
         const data = new FormData(item);
         sendData('assets/server.php', data)
-            .then(res => messageDiv.textContent = messages.success)
+            .then(res => {
+                console.log(res);
+                messageDiv.textContent = messages.success
+            })
             .catch(() => messageDiv.textContent = messages.failure)
             .finally(() => {
                 clearInput();

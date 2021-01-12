@@ -17909,7 +17909,7 @@ var sendForm = function sendForm() {
   var messages = {
     loading: 'Идет загрузка',
     success: 'Данные успешно отправлены',
-    failure: 'Что-то пошло не так'
+    failure: 'Что-то пошло не так!!!'
   };
 
   var clearInput = function clearInput() {
@@ -17955,7 +17955,8 @@ var sendForm = function sendForm() {
       item.appendChild(messageDiv);
       var data = new FormData(item);
       sendData('assets/server.php', data).then(function (res) {
-        return messageDiv.textContent = messages.success;
+        console.log(res);
+        messageDiv.textContent = messages.success;
       }).catch(function () {
         return messageDiv.textContent = messages.failure;
       }).finally(function () {
