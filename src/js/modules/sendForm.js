@@ -23,34 +23,38 @@ const sendForm = () => {
     const sendData = async (url, data) => {
         document.querySelector('.status').textContent = messages.loading;
         let res = await fetch(url, {
-            method: 'POST',
-            data: data
+            method: "POST",
+            body: data
         });
 
         return await res.text();
     };
 
-    forms.forEach(item => item.addEventListener('submit', e => {
-        e.preventDefault();
+    forms.forEach(item => {
+        item.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('.status');
-        item.appendChild(messageDiv);
+            let statusMessage = document.createElement('div');
+            statusMessage.classList.add('status');
+            item.appendChild(statusMessage);
 
-        const data = new FormData(item);
-        sendData('assets/server.php', data)
-            .then(res => {
-                console.log(res);
-                messageDiv.textContent = messages.success
-            })
-            .catch(() => messageDiv.textContent = messages.failure)
-            .finally(() => {
-                clearInput();
-                setTimeout(() => { messageDiv.remove() }, 5000)
-            }
-            )
+            const formData = new FormData(item);
 
-    }));
+            sendData('assets/server.php', formData)
+                .then(res => {
+                    console.log(res);
+                    statusMessage.textContent = messages.success;
+                })
+                .catch(() => statusMessage.textContent = messages.failure)
+                .finally(() => {
+                    clearInput();
+                    setTimeout(() => {
+                        statusMessage.remove();
+                    }, 5000);
+                });
+        });
+    });
 };
+
 
 export default sendForm;
