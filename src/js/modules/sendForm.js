@@ -1,14 +1,15 @@
+import checkInput from './checkInputs';
+
 const sendForm = () => {
     const forms = document.querySelectorAll('form'),
-        inputs = document.querySelectorAll('input'),
-        phones = document.querySelectorAll('input[name = "user_phone"]');
+        inputs = document.querySelectorAll('input');
 
-
-    phones.forEach(phone => {
-        phone.addEventListener('input', () => {
-            phone.value = phone.value.replace(/\D/, '');
-        });
-    });
+    checkInput('input[name = "user_phone"]');
+    /* phones.forEach(phone => {
+         phone.addEventListener('input', () => {
+             phone.value = phone.value.replace(/\D/, '');
+         });
+     });*/
 
     const messages = {
         loading: 'Идет загрузка',
