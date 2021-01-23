@@ -2,7 +2,7 @@ import './slider';
 import modal from './modules/modal';
 import tab from './modules/tab';
 import sendForm from './modules/sendForm';
-import changeModalState from './modules/modalState';
+import changeModalState from './modules/changeModalState';
 
 window.addEventListener('DOMContentLoaded', () => {
     "use strict";
