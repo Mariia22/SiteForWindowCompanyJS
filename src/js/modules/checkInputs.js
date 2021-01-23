@@ -4,7 +4,6 @@ const checkInput = (selector) => {
             item.value = item.value.replace(/\D/, '');
         });
     });
-    console.log('gjjhh');
 };
 
 export default checkInput;

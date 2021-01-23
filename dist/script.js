@@ -17840,12 +17840,22 @@ var changeModalState = function changeModalState(state) {
       windowProfile = document.querySelectorAll('.checkbox');
   Object(_checkInputs__WEBPACK_IMPORTED_MODULE_1__["default"])('#width');
   Object(_checkInputs__WEBPACK_IMPORTED_MODULE_1__["default"])('#height');
-  windowForm.forEach(function (item, index) {
-    item.addEventListener('click', function () {
-      state.form = index;
-      console.log(state);
+  /*windowForm.forEach((item, index) => {
+      item.addEventListener('click', () => {
+          state.form = index;
+          console.log(state);
+      });
+  });*/
+
+  function bindActionToElem(elem, event, prop) {
+    elem.forEach(function (item, index) {
+      item.addEventListener(event, function () {//state[prop] = index;
+      });
     });
-  });
+  }
+
+  ;
+  bindActionToElem(windowForm, 'click', 'form');
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (changeModalState);
@@ -17871,7 +17881,7 @@ __webpack_require__.r(__webpack_exports__);
 var checkInput = function checkInput(selector) {
   document.querySelectorAll(selector).forEach(function (item) {
     item.addEventListener('input', function () {
-      item.value = phone.value.replace(/\D/, '');
+      item.value = item.value.replace(/\D/, '');
     });
   });
 };
