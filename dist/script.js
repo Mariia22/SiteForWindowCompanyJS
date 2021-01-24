@@ -17806,7 +17806,9 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', function () {
   "use strict";
 
-  var modalState = {};
+  var modalState = {
+    type: 'tree'
+  };
   Object(_modules_changeModalState__WEBPACK_IMPORTED_MODULE_4__["default"])(modalState);
   Object(_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(_modules_tab__WEBPACK_IMPORTED_MODULE_2__["default"])('.glazing_block', '.glazing_content', '.glazing_slider', 'active');
@@ -17922,6 +17924,25 @@ var checkInput = function checkInput(selector) {
 
 /***/ }),
 
+/***/ "./src/js/modules/closePopup.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/closePopup.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var closePopup = function closePopup(selector) {
+  var popup = document.querySelector(selector);
+  popup.style.display = 'none';
+  document.body.style.overflow = '';
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (closePopup);
+
+/***/ }),
+
 /***/ "./src/js/modules/modal.js":
 /*!*********************************!*\
   !*** ./src/js/modules/modal.js ***!
@@ -18010,6 +18031,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _checkInputs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./checkInputs */ "./src/js/modules/checkInputs.js");
+/* harmony import */ var _closePopup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./closePopup */ "./src/js/modules/closePopup.js");
+
 
 
 
@@ -18021,12 +18044,6 @@ var sendForm = function sendForm(state) {
   var forms = document.querySelectorAll('form'),
       inputs = document.querySelectorAll('input');
   Object(_checkInputs__WEBPACK_IMPORTED_MODULE_5__["default"])('input[name = "user_phone"]');
-  /* phones.forEach(phone => {
-       phone.addEventListener('input', () => {
-           phone.value = phone.value.replace(/\D/, '');
-       });
-   });*/
-
   var messages = {
     loading: 'Идет загрузка',
     success: 'Данные успешно отправлены',
@@ -18076,7 +18093,7 @@ var sendForm = function sendForm(state) {
       item.appendChild(statusMessage);
       var formData = new FormData(item);
 
-      if (item.getAttribute('data-calc' === 'end')) {
+      if (item.getAttribute('data-calc') === 'end') {
         for (var key in state) {
           formData.append(key, state[key]);
         }
@@ -18091,6 +18108,7 @@ var sendForm = function sendForm(state) {
         clearInput();
         setTimeout(function () {
           statusMessage.remove();
+          Object(_closePopup__WEBPACK_IMPORTED_MODULE_6__["default"])('.popup_calc_end');
         }, 5000);
       });
     });

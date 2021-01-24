@@ -7,7 +7,7 @@ import changeModalState from './modules/changeModalState';
 window.addEventListener('DOMContentLoaded', () => {
     "use strict";
 
-    let modalState = {};
+    let modalState = { type: 'tree' };
     changeModalState(modalState);
 
     modal();

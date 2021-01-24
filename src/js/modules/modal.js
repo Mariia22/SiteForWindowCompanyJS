@@ -40,6 +40,7 @@ const modal = () => {
             document.body.style.overflow = 'hidden';
         }, time)
     }
+
     openModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
     openModal('.phone_link', '.popup', '.popup .popup_close');
     openModal('.popup_calc_btn', '.popup_calc', '.popup_calc_close');

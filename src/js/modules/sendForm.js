@@ -1,15 +1,11 @@
 import checkInput from './checkInputs';
+import closePopup from './closePopup';
 
 const sendForm = (state) => {
     const forms = document.querySelectorAll('form'),
         inputs = document.querySelectorAll('input');
 
     checkInput('input[name = "user_phone"]');
-    /* phones.forEach(phone => {
-         phone.addEventListener('input', () => {
-             phone.value = phone.value.replace(/\D/, '');
-         });
-     });*/
 
     const messages = {
         loading: 'Идет загрузка',
@@ -40,8 +36,7 @@ const sendForm = (state) => {
             item.appendChild(statusMessage);
 
             const formData = new FormData(item);
-
-            if (item.getAttribute('data-calc' === 'end')) {
+            if (item.getAttribute('data-calc') === 'end') {
                 for (let key in state) {
                     formData.append(key, state[key])
                 }
@@ -57,7 +52,9 @@ const sendForm = (state) => {
                     clearInput();
                     setTimeout(() => {
                         statusMessage.remove();
+                        closePopup('.popup_calc_end');
                     }, 5000);
+
                 });
         });
     });
