@@ -1,6 +1,6 @@
 import checkInput from './checkInputs';
 
-const sendForm = () => {
+const sendForm = (state) => {
     const forms = document.querySelectorAll('form'),
         inputs = document.querySelectorAll('input');
 
@@ -40,6 +40,12 @@ const sendForm = () => {
             item.appendChild(statusMessage);
 
             const formData = new FormData(item);
+
+            if (item.getAttribute('data-calc' === 'end')) {
+                for (let key in state) {
+                    formData.append(key, state[key])
+                }
+            }
 
             sendData('assets/server.php', formData)
                 .then(res => {

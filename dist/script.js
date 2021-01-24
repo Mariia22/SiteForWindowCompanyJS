@@ -17812,7 +17812,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_tab__WEBPACK_IMPORTED_MODULE_2__["default"])('.glazing_block', '.glazing_content', '.glazing_slider', 'active');
   Object(_modules_tab__WEBPACK_IMPORTED_MODULE_2__["default"])('.no_click', '.decoration_content > div>div', '.decoration_slider', 'after_click');
   Object(_modules_tab__WEBPACK_IMPORTED_MODULE_2__["default"])('.balcon_icons_img', '.big_img>img', '.balcon_icons', 'do_image_more', 'inline-block');
-  Object(_modules_sendForm__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_modules_sendForm__WEBPACK_IMPORTED_MODULE_3__["default"])(modalState);
 });
 
 /***/ }),
@@ -18017,7 +18017,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var sendForm = function sendForm() {
+var sendForm = function sendForm(state) {
   var forms = document.querySelectorAll('form'),
       inputs = document.querySelectorAll('input');
   Object(_checkInputs__WEBPACK_IMPORTED_MODULE_5__["default"])('input[name = "user_phone"]');
@@ -18075,6 +18075,13 @@ var sendForm = function sendForm() {
       statusMessage.classList.add('status');
       item.appendChild(statusMessage);
       var formData = new FormData(item);
+
+      if (item.getAttribute('data-calc' === 'end')) {
+        for (var key in state) {
+          formData.append(key, state[key]);
+        }
+      }
+
       sendData('assets/server.php', formData).then(function (res) {
         console.log(res);
         statusMessage.textContent = messages.success;
